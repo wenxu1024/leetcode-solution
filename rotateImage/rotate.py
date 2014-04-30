@@ -14,7 +14,7 @@ class Solution:
             for i in range(l):
                 temp=matrix[i][j]
                 matrix[i][j]=matrix[i][l-1-j]
-                matrix[i][l-1-j]=temp
+                matrix[i][l-1-j]=temp #this nested for loop exchange column j with column n-j
         return matrix
         
 if __name__=="__main__":
