@@ -12,7 +12,7 @@ class Solution:
 #        for i in xrange(l-2,-1,-1):
 #            for j in xrange(1,A[i]+1,1):
 #                B[i]=B[i] or B[i+j]
-#        return B[0]
+#        return B[0]   # This is the correct solution, but it requires O(n^2) time
 
 #    def canJump(self,A):
 #	maxCover=0
@@ -23,7 +23,7 @@ class Solution:
 #			maxCover=A[start]+start
 #		if maxCover>=l-1:
 #			return True
-#	return False '''
+#	return False  # This solution is wrong
 
      def canJump(self,A):
 	i=0
@@ -31,7 +31,7 @@ class Solution:
 		if A[i]==0:
 			return False
 		i+=A[i]
-	return i>=len(A)-1
+	return i>=len(A)-1 #Although it passes the leetcode OJ, the solution is wrong, see the last test case
 	
 
 if __name__=="__main__":
