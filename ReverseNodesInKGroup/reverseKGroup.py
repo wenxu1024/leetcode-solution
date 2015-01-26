@@ -24,7 +24,7 @@ class Solution:
         if head == None:
             return None
         prev = None
-        for i in range(k):
+        for i in range(k): # if k larger than list length, just return head
             if current != None:
                 current = current.next
             else:
@@ -32,18 +32,18 @@ class Solution:
                 break
         else:
             current = head
-            for i in range(k):
+            for i in range(k): # reverse the first k listnodes
                 temp = current.next
                 current.next = prev
                 prev = current
                 current = temp
             
-            head2 = self.reverseKGroup(current, k)
-            head = prev
+            head2 = self.reverseKGroup(current, k) # reverse the remaining
+            head = prev #set the head of returning list
             current = head
             while current.next != None:
-                current = current.next
-            current.next = head2
+                current = current.next #get the tail of the new first k list nodes
+            current.next = head2 #link the tail to the head of the reversed remaining
             return head
             
 if __name__ == "__main__":
