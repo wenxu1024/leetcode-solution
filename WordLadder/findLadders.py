@@ -23,7 +23,7 @@ class Solution:
         leveldict[start] = 0
         for s in dict:
             visited[s] = 'W'
-
+        # BFS to build parent list
         while q:
             (s, level) = q.popleft()
             visited[s] = 'D'
@@ -34,29 +34,31 @@ class Solution:
                 for c in alphabet:
                     if s[i] != c:
                         stemp = s[:i] + c + s[i + 1:]
-                        if stemp in dict and visited[stemp] == 'W':
-                            visited[stemp] = 'G'
-                            q.append((stemp, level + 1))
-                            parent[stemp] = [s]
-                            leveldict[stemp] = level + 1
-                        elif stemp in dict and visited[stemp] == 'G':
-                            if leveldict[stemp] == leveldict[s] + 1:
-                                parent[stemp].append(s)
+                        if stemp in dict and visited[stemp] == 'W':  # if first time see the node
+                            visited[stemp] = 'G' # color the node as gray
+                            q.append((stemp, level + 1))  # push the node and its level to the queue
+                            parent[stemp] = [s] # record its parent node
+                            leveldict[stemp] = level + 1 # record its level
+                        elif stemp in dict and visited[stemp] == 'G': # if seen it again, but it is not finished (colored as black
+                            if leveldict[stemp] == leveldict[s] + 1: # if its level is one level more than the current level
+                                parent[stemp].append(s) # add its new parent to its parentlist
                         else:
                             pass
                                 
+        # finish building parent list
         return self.findLadders_dfs(start, end, parent)
         
         
     def findLadders_dfs(self, start, end, parent):
+	'''DFS to get the path'''
         if start == end:
-            return [[end]]
+            return [[end]] # if start equals end, the path just contains one element
         res = []
-        if end in parent:
-            for p in parent[end]:
-                subres = self.findLadders_dfs(start, p, parent)
+        if end in parent: # if end has parent
+            for p in parent[end]: # iterate through its parent
+                subres = self.findLadders_dfs(start, p, parent) #recursively solve the smaller problem
                 for list in subres:
-                    res.append(list + [end])
+                    res.append(list + [end]) # concatenate to solve the original problem
         return res
         
 
