@@ -32,7 +32,7 @@ public class Solution {
                     }
                 }
             }
-        }
+        } // Buy and Sell Stock One Time Solution
 	System.out.println(max[0][l][1]);
         
         for (t = 2; t < k + 1; t++ ) {
@@ -47,7 +47,7 @@ public class Solution {
                     }
                 }
             }
-        }
+        } // DP based on Buy and Sell Stock One Time
         return max[0][l][k];
     }
 
