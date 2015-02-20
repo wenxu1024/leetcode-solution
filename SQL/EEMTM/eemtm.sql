@@ -1,0 +1,5 @@
+#Employee earning more than their managers
+# Write your MySQL query statement below
+SELECT a.Name From 
+Employee a JOIN Employee b
+Where (a.ManagerId = b.Id) and (a.Salary > b.Salary)
