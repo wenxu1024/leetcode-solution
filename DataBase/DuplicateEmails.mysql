@@ -1,0 +1,4 @@
+# Write your MySQL query statement below
+
+delete from Person
+where Id in (select Id from (select p2.ID as Id from Person p1, Person p2 where p1.Email = p2.Email and p1.Id < p2.Id) as TempTable)

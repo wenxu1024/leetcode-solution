@@ -1,0 +1,4 @@
+# Write your MySQL query statement below
+select distinct w1.Id
+from Weather w1, Weather w2
+where w1.Temperature > w2.Temperature and datediff(w1.date, w2.date) = 1
