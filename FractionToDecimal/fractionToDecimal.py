@@ -1,4 +1,5 @@
 #! /usr/bin/python
+from allprime import primes
 
 class Solution:
     # @return a string
@@ -48,7 +49,9 @@ class Solution:
         
         
 if __name__ == "__main__":
-    numerator = 16
-    denominator = 17
+    numerator = 1
     sol = Solution()
-    print sol.fractionToDecimal(numerator,denominator)
+    n = 100000
+    l = primes(n)
+    for denominator in l:
+        print denominator, len(sol.fractionToDecimal(numerator,denominator))

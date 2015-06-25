@@ -9,7 +9,7 @@ class Solution:
         for i in range(n):
             d[i] = False
         self.solve(n, 0, l, d, answer)
-        return len(answer)
+        return answer
         
         
     def solve(self, n, i, l, d, answer):
@@ -48,5 +48,5 @@ class Solution:
 
 if __name__ == "__main__":
      sol = Solution()
-     n = 8
+     n = 4
      print sol.solveNQueens(n)

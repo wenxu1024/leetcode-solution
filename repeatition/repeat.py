@@ -26,7 +26,7 @@ class Solution:
 
 
 if __name__ == "__main__":
-    l = ["abcabcabc", "bcdbcdbcde", "abcdabcd", "xyz", "aaaaaaaaa"]
+    l = ["aaabaaaaba","abcabcabc", "bcdbcdbcde", "abcdabcd", "xyz", "aaaaaaaaa"]
     sol = Solution()
     for item in l:
        print l, sol.repeat(item)
